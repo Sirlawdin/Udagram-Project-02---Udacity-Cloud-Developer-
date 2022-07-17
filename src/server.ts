@@ -31,17 +31,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       return;
     }
 
-    //Regular expression to validate the image_url
-    const expression: RegExp =
-      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-    const regex: RegExp = new RegExp(expression);
-
-    // validate if the image_url is well formed
-    if (!image_url.match(regex)) {
-      res.status(400).send({ message: "Image URL is required or malformed" });
-      return;
-    }
-
+ 
     // validate the type of the image
     if (
       !image_url.toLowerCase().endsWith(".jpeg") &&
